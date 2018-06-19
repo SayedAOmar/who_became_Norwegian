@@ -47,29 +47,36 @@ ui <- dashboardPage(
           actionButton("submit", "Submit",style="color:white",class="btn-danger btn-large")
       )
     ),
-    tags$img(src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Norway.svg/2000px-Flag_of_Norway.svg.png',height='254', class="logo_bottom"),
-    tags$style(type='text/css', ".logo_bottom { position:fixed;bottom:0px;left:0px;width:350px; }")
+    tags$img(src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Norway.svg/2000px-Flag_of_Norway.svg.png', class="logo_bottom"),
+    tags$style(type='text/css', ".logo_bottom { position:fixed;bottom:0px;left:0px;width:350px;height:20% }")
   ),
   dashboardBody(
+    
     fluidRow(
-      tags$h3("You have to choose the countries to plot it ")
+      style = "margin-left: 20px;margin-right:20px;font-style: italic;font-family: Sans-serif;",
+      tags$h4(" Do you wonder about how many people from a specific country have been naturalized and get the norwegian citizenship? choose country/ countries from the side bar and range of years, then click submit, you will see a time series graph showing the number of people nataulrized in the selected range. ")
     ),
     fluidRow(
-      style = "background-color:white;",
+      style = "background-color:white;margin-left: 20px;margin-right:20px;",
       height= 450,
       dygraphOutput("time_series_graph", height = 450)
     ),
     fluidRow(
-      tags$h3("This data imported from dasdksn and developed by : "),
+      style = "margin-left: 20px;margin-right:20px;font-style:italic;",
+      tags$h4("Data has been imported from Norwegian statistics bureau. "),
+      tags$h4("Presented by: ")
+    ),
+    fluidRow(
+      style = "margin-left: 5px;margin-right:5px;",
       box(
         width = 6,
-        tags$h2("Sherif Ahmed"),
-        tags$h4("abdjasbdj@nfjds.com")
+        tags$a(href="https://www.linkedin.com/in/sherifahmed7/",target="_blank", "Sherif A. Rabie",style="font-size:25px;"),
+        tags$h5("sherif_ahmed@foc.cu.edu.eg")
       ),
       box(
         width = 6,
-        tags$h2("Sayed A. Omar"),
-        tags$h4("devsayed1@gmail.com")
+        tags$a(href="https://www.linkedin.com/in/sayedomar/",target="_blank", "Sayed A. Omar",style="font-size:25px;"),
+        tags$h5("devsayed1@gmail.com")
       )
     )
   )
